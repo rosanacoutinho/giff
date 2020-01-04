@@ -1,18 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Rosana
-        </p>
-      </header>
-    </div>
-  );
+import './App.css';
+import React, { Component } from 'react';
+import Contacts from './components/Contacts';
+
+class App extends Component {
+  render() {
+    return (
+      <Contacts contacts={this.state.contacts} />
+    );
+  }
+
+  state = {
+    contacts: []
+  }
+
+  componentDidMount() {
+
+
+    fetch('http://jsonplaceholder.typicode.com/users')
+    .then(res => res.json())
+    .then((data) => {
+      this.setState({ contacts: data })
+    })
+    .catch(console.log)
+  }
 }
 
 export default App;
