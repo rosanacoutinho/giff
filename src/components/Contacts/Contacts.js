@@ -4,7 +4,7 @@ import './Contacts.css';
 const Contacts = ({ contacts }) => {
       return (
         <div>
-          <center><h1>Contact List</h1></center>
+          <center><h1>Lista de Contatos da Rosana</h1></center>
           {contacts.map((contact) => (
             <div class="card">
               <div class="card-body">
