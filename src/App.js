@@ -14,10 +14,18 @@ class App extends Component {
     contacts: []
   }
 
+  
+
   componentDidMount() {
-
-
-    fetch('http://jsonplaceholder.typicode.com/users')
+    
+ 
+    fetch('https://signos-bucket.s3.us-east-2.amazonaws.com/contactlist.json',
+    {   method:'GET',
+        mode: 'cors',
+        headers:{
+            'Access-Control-Allow-Origin':'*'
+        },
+    })
     .then(res => res.json())
     .then((data) => {
       this.setState({ contacts: data })
